@@ -3,7 +3,13 @@ import logo1 from "../assets/images/Nike-Logo1.jpg";
 import logo2 from "../assets/images/Nike-Logo2.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
-import { faBagShopping, faSearch } from "@fortawesome/free-solid-svg-icons";
+import {
+  faArrowRight,
+  faBagShopping,
+  faBars,
+  faSearch,
+  faX,
+} from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 const messages = [
   "Welcome to Nike",
@@ -37,20 +43,16 @@ const Links = [
   },
 ];
 const NavBar = () => {
-  // const [index, setIndex] = useState(0);
-  // const [animate, setAnimate] = useState(false);
-  // useEffect(()=>{
-  //   const interval = setInterval(() => {
-  //     setAnimate(false);
-  //     setTimeout(() => {
-  //       setIndex((prev) => (prev+1) % messages.length);
-  //       setAnimate(true);
-  //     },300);
-  //   },5000);
-  //   return () => clearInterval(interval)
-  // },[])
+  const [isClick, setIsClick] = useState(false);
   const [index, setIndex] = useState(0);
   const [animate, setAnimate] = useState(false);
+  useEffect(() => {
+    if (isClick) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+  }, [isClick]);
   useEffect(() => {
     setAnimate(true);
     const interval = setInterval(() => {
@@ -63,8 +65,8 @@ const NavBar = () => {
     return () => clearInterval(interval);
   }, []);
   return (
-    <nav>
-      <div className="bg-gray-100 text-black flex justify-between py-2 px-9 w-screen h-[38px]">
+    <nav className="overflow-x-hidden">
+      <div className="bg-gray-100 text-black lg:flex justify-between py-2 px-9 w-screen h-[38px] hidden">
         <img
           className="w-fit rounded-[5px] h-[20px] border-2 border-black/40 object-cover"
           src={logo1}
@@ -87,25 +89,30 @@ const NavBar = () => {
         <img className="w-fit h-[50px]" src={logo2} alt="logo2" />
         <ul className="flex gap-5 font-semibold font-mono">
           {Links.map(({ label, path }) => (
-            <Link key={path} className="text-[15px]" to={path}>
+            <Link key={path} className="text-[15px] hidden lg:block" to={path}>
               {label}
             </Link>
           ))}
         </ul>
         <aside className="relative flex gap-5">
           <FontAwesomeIcon
-            className="absolute left-[1px] bg-gray-100 top-[1px] hover:bg-gray-300 p-[7px] rounded-full"
+            className="absolute lg:left-[1px] left-[0px] bg-gray-100 top-[1px] hover:bg-gray-300 p-[7px] rounded-full !hidden lg:!block"
             icon={faSearch}
           />
           <input
-            className="w-[80%] h-fit bg-gray-100 hover:bg-gray-300 rounded-[20px] p-1 text-center font-medium"
-            type="text"
+            className="w-[60%] hidden lg:block h-fit bg-gray-100 hover:bg-gray-300 rounded-[20px] p-1 text-center font-medium"
+            type="search"
             placeholder="Look for"
           />
           <FontAwesomeIcon className="text-[1.3rem] mt-1" icon={faHeart} />
           <FontAwesomeIcon
             className="text-[1.3rem] mt-1"
             icon={faBagShopping}
+          />
+          <FontAwesomeIcon
+            onClick={() => setIsClick(true)}
+            className="text-[1.3rem] mt-1 lg:!hidden"
+            icon={faBars}
           />
         </aside>
       </div>
@@ -117,6 +124,44 @@ const NavBar = () => {
         >
           {messages[index]}
         </div>
+      </div>
+      <div
+        className={
+          isClick
+            ? "w-screen h-screen bg-black/40 absolute top-0 z-10"
+            : "hidden"
+        }
+      ></div>
+      <div
+        className={`w-[50%] md:w-[40%] h-screen absolute bg-white right-0 top-0 duration-500 z-20 transition-all ${
+          isClick
+            ? "translate-x-0"
+            : "translate-x-full"
+        }`}
+      >
+        <main className=" flex justify-end">
+          <FontAwesomeIcon
+            className="text-[1rem] m-4"
+            onClick={() => setIsClick(false)}
+            icon={faX}
+          />
+        </main>
+        <ul className="flex flex-col px-5 gap-4 font-semibold">
+          {Links.map(({ label, path }) => (
+            <Link
+              onClick={() => setIsClick(false)}
+              key={path}
+              className="text-[13px] flex justify-between items-center bg-black/20 px-2 py-1"
+              to={path}
+            >
+              {label}
+              <FontAwesomeIcon
+                className="text-[8px] text-gray-600"
+                icon={faArrowRight}
+              />
+            </Link>
+          ))}
+        </ul>
       </div>
     </nav>
   );
