@@ -3,11 +3,11 @@ import { Footer, NavBar } from "../main/index"
 
 const RootLayout = () => {
   return (
-    <>  
+    <div className="overflow-x-hidden relative w-screen h-screen">  
         <NavBar/>
         <Outlet/>
         <Footer/>
-    </>
+    </div>
   )
 }
 

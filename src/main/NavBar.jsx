@@ -65,78 +65,82 @@ const NavBar = () => {
     return () => clearInterval(interval);
   }, []);
   return (
-    <nav className="overflow-x-hidden">
-      <div className="bg-gray-100 text-black lg:flex justify-between py-2 px-9 w-screen h-[38px] hidden">
-        <img
-          className="w-fit rounded-[5px] h-[20px] border-2 border-black/40 object-cover"
-          src={logo1}
-          alt="logo1"
-        />
-        <ul className="flex gap-5 text-[12px] font-medium">
-          <li className="border-e-2 border-black pe-3 hover:cursor-pointer">
-            Find a store
-          </li>
-          <li className="border-e-2 border-black pe-3 hover:cursor-pointer">
-            Aid
-          </li>
-          <li className="border-e-2 border-black pe-3 hover:cursor-pointer">
-            Join
-          </li>
-          <li className="hover:cursor-pointer">Login</li>
-        </ul>
-      </div>
-      <div className="bg-white text-black flex justify-between py-2 px-9 items-center">
-        <img className="w-fit h-[50px]" src={logo2} alt="logo2" />
-        <ul className="flex gap-5 font-semibold font-mono">
-          {Links.map(({ label, path }) => (
-            <Link key={path} className="text-[15px] hidden lg:block" to={path}>
-              {label}
-            </Link>
-          ))}
-        </ul>
-        <aside className="relative flex gap-5">
-          <FontAwesomeIcon
-            className="absolute lg:left-[1px] left-[0px] bg-gray-100 top-[1px] hover:bg-gray-300 p-[7px] rounded-full !hidden lg:!block"
-            icon={faSearch}
+    <>
+      <nav>
+        <div className="bg-gray-100 text-black lg:flex justify-between py-2 px-9 w-screen h-[38px] hidden">
+          <img
+            className="w-fit rounded-[5px] h-[20px] border-2 border-black/40 object-cover"
+            src={logo1}
+            alt="logo1"
           />
-          <input
-            className="w-[60%] hidden lg:block h-fit bg-gray-100 hover:bg-gray-300 rounded-[20px] p-1 text-center font-medium"
-            type="search"
-            placeholder="Look for"
-          />
-          <FontAwesomeIcon className="text-[1.3rem] mt-1" icon={faHeart} />
-          <FontAwesomeIcon
-            className="text-[1.3rem] mt-1"
-            icon={faBagShopping}
-          />
-          <FontAwesomeIcon
-            onClick={() => setIsClick(true)}
-            className="text-[1.3rem] mt-1 lg:!hidden"
-            icon={faBars}
-          />
-        </aside>
-      </div>
-      <div className="bg-gray-100 flex justify-center items-center w-screen h-[45px] overflow-hidden">
-        <div
-          className={`font-semibold text-[12px] duration-300 ${
-            animate ? "opacity-100" : "opacity-0"
-          }`}
-        >
-          {messages[index]}
+          <ul className="flex gap-5 text-[12px] font-medium">
+            <li className="border-e-2 border-black pe-3 hover:cursor-pointer">
+              Find a store
+            </li>
+            <li className="border-e-2 border-black pe-3 hover:cursor-pointer">
+              Aid
+            </li>
+            <li className="border-e-2 border-black pe-3 hover:cursor-pointer">
+              Join
+            </li>
+            <li className="hover:cursor-pointer">Login</li>
+          </ul>
         </div>
-      </div>
-      <div
-        className={
-          isClick
-            ? "w-screen h-screen bg-black/40 absolute top-0 z-10"
-            : "hidden"
-        }
-      ></div>
+        <div className="bg-white text-black flex justify-between py-2 px-9 items-center">
+          <img className="w-fit h-[50px]" src={logo2} alt="logo2" />
+          <ul className="flex gap-5 font-semibold font-mono">
+            {Links.map(({ label, path }) => (
+              <Link
+                key={path}
+                className="text-[15px] hidden lg:block"
+                to={path}
+              >
+                {label}
+              </Link>
+            ))}
+          </ul>
+          <aside className="relative flex gap-5">
+            <FontAwesomeIcon
+              className="absolute lg:left-[1px] left-[0px] bg-gray-100 top-[1px] hover:bg-gray-300 p-[7px] rounded-full !hidden lg:!block"
+              icon={faSearch}
+            />
+            <input
+              className="w-[60%] hidden lg:block h-fit bg-gray-100 hover:bg-gray-300 rounded-[20px] p-1 text-center font-medium"
+              type="search"
+              placeholder="Look for"
+            />
+            <FontAwesomeIcon className="text-[1.3rem] mt-1" icon={faHeart} />
+            <FontAwesomeIcon
+              className="text-[1.3rem] mt-1"
+              icon={faBagShopping}
+            />
+            <FontAwesomeIcon
+              onClick={() => setIsClick(true)}
+              className="text-[1.3rem] mt-1 lg:!hidden"
+              icon={faBars}
+            />
+          </aside>
+        </div>
+        <div className="bg-gray-100 flex justify-center items-center w-screen h-[45px] overflow-hidden">
+          <div
+            className={`font-semibold text-[12px] duration-300 ${
+              animate ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            {messages[index]}
+          </div>
+        </div>
+        <div
+          className={
+            isClick
+              ? "w-screen h-screen bg-black/40 absolute top-0 z-10"
+              : "hidden"
+          }
+        ></div>
+      </nav>
       <div
         className={`w-[50%] md:w-[40%] h-screen absolute bg-white right-0 top-0 duration-500 z-20 transition-all ${
-          isClick
-            ? "translate-x-0"
-            : "translate-x-full"
+          isClick ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <main className=" flex justify-end">
@@ -163,7 +167,7 @@ const NavBar = () => {
           ))}
         </ul>
       </div>
-    </nav>
+    </>
   );
 };
 
