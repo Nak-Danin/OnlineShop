@@ -43,6 +43,7 @@ const Links = [
   },
 ];
 const NavBar = () => {
+  const [isSearch, setIsSearch] = useState(false);
   const [isClick, setIsClick] = useState(false);
   const [index, setIndex] = useState(0);
   const [animate, setAnimate] = useState(false);
@@ -67,6 +68,10 @@ const NavBar = () => {
   return (
     <>
       <nav>
+        <div className={ isSearch? "flex justify-center bg-gray-200 py-2 items-center gap-3" : "hidden"}>
+          <input className="border-2 text-center rounded-[5px] outline-0" type="search" placeholder="Search Here" />
+          <FontAwesomeIcon onClick={() => setIsSearch(false)} className="text-[1.1rem] hover:bg-black/30 p-1 rounded-[2px]" icon={faX}/>
+        </div>
         <div className="bg-gray-100 text-black lg:flex justify-between py-2 px-9 w-screen h-[38px] hidden">
           <img
             className="w-fit rounded-[5px] h-[20px] border-2 border-black/40 object-cover"
@@ -101,7 +106,8 @@ const NavBar = () => {
           </ul>
           <aside className="relative flex gap-5">
             <FontAwesomeIcon
-              className="absolute lg:left-[1px] left-[0px] bg-gray-100 top-[1px] hover:bg-gray-300 p-[7px] rounded-full !hidden lg:!block"
+              onClick={() => setIsSearch(true)}
+              className="lg:absolute lg:left-[1px] left-[0px] bg-gray-100 top-[1px] hover:bg-gray-300 p-[7px] rounded-full  "
               icon={faSearch}
             />
             <input
@@ -109,7 +115,7 @@ const NavBar = () => {
               type="search"
               placeholder="Look for"
             />
-            <FontAwesomeIcon className="text-[1.3rem] mt-1" icon={faHeart} />
+            <FontAwesomeIcon className="text-[1.3rem] mt-1 !hidden lg:!block" icon={faHeart} />
             <FontAwesomeIcon
               className="text-[1.3rem] mt-1"
               icon={faBagShopping}
