@@ -18,28 +18,28 @@ const messages = [
 ];
 const Links = [
   {
-    label: "Home",
+    label: "HOME",
     path: "/",
   },
   {
-    label: "About",
-    path: "About",
+    label: "MEN",
+    path: "men",
   },
   {
-    label: "Visit Us",
-    path: "Visit",
+    label: "WOMEN",
+    path: "women",
   },
   {
-    label: "Contact",
-    path: "Contact",
+    label: "KID",
+    path: "kid",
   },
   {
-    label: "Service",
-    path: "Service",
+    label: "SALE",
+    path: "sale",
   },
   {
-    label: "Store",
-    path: "Store",
+    label: "NEW & TRENDING",
+    path: "new&trending",
   },
 ];
 const NavBar = () => {
@@ -68,8 +68,8 @@ const NavBar = () => {
   return (
     <>
       <nav>
-        <div className={ isSearch? "flex justify-center bg-gray-200 py-2 items-center gap-3" : "hidden"}>
-          <input className="border-2 text-center rounded-[5px] outline-0" type="search" placeholder="Search Here" />
+        <div className={ isSearch? "lg:hidden flex justify-center bg-gray-200 py-2 items-center gap-3" : "hidden"}>
+          <input className="border-2 text-center rounded-[5px] outline-0 w-[calc(100vw/3)] text-[12px] md:text-[20px]" type="search" placeholder="Search Here" />
           <FontAwesomeIcon onClick={() => setIsSearch(false)} className="text-[1.1rem] hover:bg-black/30 p-1 rounded-[2px]" icon={faX}/>
         </div>
         <div className="bg-gray-100 text-black lg:flex justify-between py-2 px-9 w-screen h-[38px] hidden">
@@ -107,7 +107,7 @@ const NavBar = () => {
           <aside className="relative flex gap-5">
             <FontAwesomeIcon
               onClick={() => setIsSearch(true)}
-              className="lg:absolute lg:left-[1px] left-[0px] bg-gray-100 top-[1px] hover:bg-gray-300 p-[7px] rounded-full  "
+              className="lg:absolute lg:left-[1px] lg:text-[1.3rem] left-[0px] bg-gray-100 top-[1px] md:text-[30px] hover:bg-gray-300 p-[7px] rounded-full  "
               icon={faSearch}
             />
             <input
@@ -115,21 +115,21 @@ const NavBar = () => {
               type="search"
               placeholder="Look for"
             />
-            <FontAwesomeIcon className="text-[1.3rem] mt-1 !hidden lg:!block" icon={faHeart} />
+            <FontAwesomeIcon className="text-[1.3rem] lg:text-[1.3rem] mt-1 !hidden lg:!block md:text-[30px]" icon={faHeart} />
             <FontAwesomeIcon
-              className="text-[1.3rem] mt-1"
+              className="text-[1.3rem] lg:text-[1.3rem] mt-1 md:text-[30px]"
               icon={faBagShopping}
             />
             <FontAwesomeIcon
               onClick={() => setIsClick(true)}
-              className="text-[1.3rem] mt-1 lg:!hidden"
+              className="text-[1.3rem] lg:text-[1.3rem] mt-1 lg:!hidden md:text-[30px]"
               icon={faBars}
             />
           </aside>
         </div>
         <div className="bg-gray-100 flex justify-center items-center w-screen h-[45px] overflow-hidden">
           <div
-            className={`font-semibold text-[12px] duration-300 ${
+            className={`font-semibold text-[12px] md:text-[15px] duration-300 ${
               animate ? "opacity-100" : "opacity-0"
             }`}
           >
@@ -151,7 +151,7 @@ const NavBar = () => {
       >
         <main className=" flex justify-end">
           <FontAwesomeIcon
-            className="text-[1rem] m-4"
+            className="text-[1rem] m-4 md:text-[20px]"
             onClick={() => setIsClick(false)}
             icon={faX}
           />
@@ -161,12 +161,12 @@ const NavBar = () => {
             <Link
               onClick={() => setIsClick(false)}
               key={path}
-              className="text-[13px] flex justify-between items-center bg-black/20 px-2 py-1"
+              className="text-[13px] md:text-[20px] flex justify-between items-center bg-black/20 px-2 py-1"
               to={path}
             >
               {label}
               <FontAwesomeIcon
-                className="text-[8px] text-gray-600"
+                className="text-[8px] md:text-[15px] text-gray-600"
                 icon={faArrowRight}
               />
             </Link>

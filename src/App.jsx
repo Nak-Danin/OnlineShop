@@ -10,34 +10,24 @@ const router = createBrowserRouter([
         element: <h1>Home</h1>,
       },
       {
-        path: "About",
-        element: <h1>About</h1>
+        path: "men",
+        element: <h1>Men</h1>
       },
       {
-        path: "Visit",
-        element: <h1>Visit us</h1>
+        path: "women",
+        element: <h1>Woman</h1>
       },
       {
-        path: "Contact",
-        element: <h1>Contact</h1>,
+        path: "kid",
+        element: <h1>Kid</h1>,
       },
       {
-        path: "Service",
-        element: <h1>Service</h1>
+        path: "sale",
+        element: <h1>Sale</h1>
       },
       {
-        path: "Store",
-        element: <h1>Store Layout</h1>,
-        children:[
-          {
-            index: true,
-            element: <h1>Product</h1>,
-          },
-          {
-            path: "product:name",
-            element: <h1>Product details</h1>
-          }
-        ]
+        path: "new&trending",
+        element: <h1>New&TrendingLayout</h1>,
       }
     ]
   },
