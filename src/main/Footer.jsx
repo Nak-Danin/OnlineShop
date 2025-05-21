@@ -4,12 +4,12 @@ import {faFacebook, faInstagram, faXTwitter, faPinterest, faTiktok} from "@forta
 
 const Footer = () => {
   return (
-    <div>
+    <div className="mt-8">
       <div className="bg-black text-white w-screen h-fit flex flex-col items-center gap-3 py-7">
         <h1 className="w-[calc(100vw-15%)] lg:w-[40vw] text-center font-bold text-[20px] lg:text-[30px]">
           A LEADER IN ATHLETIC PERFORMANCE SINCE 1949
         </h1>
-        <p className=" w-[calc(100vw-10%)] lg:w-[50vw] text-[15px] font-normal text-justify whitespace-normal">
+        <p className=" w-[calc(100vw-10%)] lg:w-[57vw] text-[15px] font-normal text-justify whitespace-normal">
           We're inspired by athletes. From the very first track spikes Adi
           Dassler made in his workshop, creating the best gear for the athlete
           is what drives us to pursue technological breakthroughs and design
