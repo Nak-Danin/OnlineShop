@@ -16,11 +16,11 @@ const Product = ({
   const [showDetails, setShowDetails] = useState(false);
   useEffect(() => {
     if (showDetails) {
-      document.body.classList.add("overflow-hidden");
+      document.querySelector("body").style.cssText = "overflow-y: hidden";
     } else {
-      document.body.classList.remove("overflow-hidden");
+      document.querySelector("body").style.cssText = "overflow-y: auto";
     }
-    return () => document.body.classList.remove("overflow-hidden");
+    // return () => document.body.classList.remove("overflow-hidden");
   }, [showDetails]);
   return (
     <>
