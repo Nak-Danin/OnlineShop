@@ -25,7 +25,7 @@ const Product = ({
     <>
       <div className="w-[200px] h-[280px] rounded-[10px] border-2 border-black/50">
         <img
-          className="w-full bg-red-300 h-[60%] rounded-t-[10px]"
+          className="w-full h-[60%] object-cover rounded-t-[10px]"
           src={imgsrc}
           alt={name}
         />
@@ -68,8 +68,8 @@ const Product = ({
           <div className="flex flex-col justify-center w-full h-full md:flex-row rounded-[20px]">
             <div className="w-full h-[50%] md:h-[100%] rounded-t-[20px] bg-emerald-500 flex items-center md:rounded-e-none md:rounded-s-[20px] justify-center">
               <img
-                className="w-[70%] h-[80%] md:w-[80%] md:h-[70%] rounded-[10px] bg-blue-400"
-                src="https://t3.ftcdn.net/jpg/01/21/81/86/360_F_121818673_6EID5iF76VCCc4aGOLJkd94Phnggre3o.jpg"
+                className="w-[70%] h-[80%] md:w-[80%] md:h-[70%] rounded-[10px] bg-white object-cover"
+                src={imgsrc}
                 alt={name}
               />
             </div>
