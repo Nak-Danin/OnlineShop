@@ -20,7 +20,6 @@ const Product = ({
     } else {
       document.querySelector("body").style.cssText = "overflow-y: auto";
     }
-    // return () => document.body.classList.remove("overflow-hidden");
   }, [showDetails]);
   return (
     <>

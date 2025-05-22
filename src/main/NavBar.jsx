@@ -49,9 +49,9 @@ const NavBar = () => {
   const [animate, setAnimate] = useState(false);
   useEffect(() => {
     if (isClick) {
-      document.body.classList.add("overflow-hidden");
+      document.querySelector("body").style.cssText = "overflow-y: hidden";
     } else {
-      document.body.classList.remove("overflow-hidden");
+      document.querySelector("body").style.cssText = "overflow-y: auto";
     }
   }, [isClick]);
   useEffect(() => {
@@ -67,7 +67,7 @@ const NavBar = () => {
   }, []);
   return (
     <>
-      <nav>
+      <nav className="sticky top-0 z-10">
         <div className={ isSearch? "lg:hidden flex justify-center bg-gray-200 py-2 items-center gap-3" : "hidden"}>
           <input className="border-2 text-center rounded-[5px] outline-0 w-[calc(100vw/3)] text-[12px] md:text-[20px]" type="search" placeholder="Search Here" />
           <FontAwesomeIcon onClick={() => setIsSearch(false)} className="text-[1.1rem] hover:bg-black/30 p-1 rounded-[2px]" icon={faX}/>
@@ -91,7 +91,7 @@ const NavBar = () => {
             <li className="hover:cursor-pointer">Login</li>
           </ul>
         </div>
-        <div className="bg-white text-black flex justify-between py-2 px-9 items-center">
+        <div className="bg-white text-black flex justify-between py-2 px-9 items-center w-screen">
           <img className="w-fit h-[50px]" src={logo2} alt="logo2" />
           <ul className="flex gap-5 font-semibold font-mono">
             {Links.map(({ label, path }) => (
@@ -107,7 +107,7 @@ const NavBar = () => {
           <aside className="relative flex gap-5">
             <FontAwesomeIcon
               onClick={() => setIsSearch(true)}
-              className="lg:absolute lg:left-[1px] lg:text-[1.3rem] left-[0px] bg-gray-100 top-[1px] md:text-[30px] hover:bg-gray-300 p-[7px] rounded-full  "
+              className="lg:absolute lg:left-[1px] lg:text-[1.2em] lg:top-0 left-[0px] bg-gray-100 top-[1px] md:text-[30px] hover:bg-gray-300 p-[7px] rounded-full  "
               icon={faSearch}
             />
             <input
@@ -127,6 +127,7 @@ const NavBar = () => {
             />
           </aside>
         </div>
+      </nav>
         <div className="bg-gray-100 flex justify-center items-center w-screen h-[45px] overflow-hidden">
           <div
             className={`font-semibold text-[12px] md:text-[15px] duration-300 ${
@@ -139,13 +140,12 @@ const NavBar = () => {
         <div
           className={
             isClick
-              ? "w-screen h-screen bg-black/40 absolute top-0 z-10"
+              ? "w-screen h-screen bg-black/40 fixed top-0 z-20"
               : "hidden"
           }
         ></div>
-      </nav>
       <div
-        className={`w-[50%] md:w-[40%] h-screen absolute bg-white right-0 top-0 duration-500 z-20 transition-all ${
+        className={`w-[50%] md:w-[40%] fixed h-screen bg-white right-0 top-0 duration-500 z-30 transition-all ${
           isClick ? "translate-x-0" : "translate-x-full"
         }`}
       >

@@ -14,3 +14,6 @@
 .nav-item{
   @apply py-1 px-1 rounded-[5px] hover:bg-gray-500 hover:text-white cursor-pointer;
 }
+.body-lock {
+  @apply h-[100vh] overflow-hidden;
+}
