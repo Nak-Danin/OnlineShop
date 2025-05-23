@@ -4,7 +4,7 @@ import {faFacebook, faInstagram, faXTwitter, faPinterest, faTiktok} from "@forta
 
 const Footer = () => {
   return (
-    <div className="mt-8">
+    <div className="mt-[40px]">
       <div className="bg-black text-white w-screen h-fit flex flex-col items-center gap-3 py-7">
         <h1 className="w-[calc(100vw-15%)] lg:w-[40vw] text-center font-bold text-[20px] lg:text-[30px]">
           A LEADER IN ATHLETIC PERFORMANCE SINCE 1949

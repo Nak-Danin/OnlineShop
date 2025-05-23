@@ -7,7 +7,7 @@ const sale = shoes.filter(({ discount }) => discount !== 0);
 const Home = () => {
   return (
     <div className="relative">
-      <h1 className="font-mono text-[30px] flex justify-center py-3">
+      <h1 className="font-mono text-[30px] flex justify-center py-3 lg:mt-[10px]">
         Men Section
       </h1>
       <div className="w-screen h-fit overflow-x-scroll px-10">
@@ -39,7 +39,7 @@ const Home = () => {
           )}
         </div>
       </div>
-      <h1 className="font-mono text-[30px] flex justify-center py-3">
+      <h1 className="font-mono text-[30px] flex justify-center py-3 mt-[40px] lg:mt-[10px]">
         Women Section
       </h1>
       <div className="w-screen h-fit overflow-x-scroll px-10">
@@ -71,7 +71,7 @@ const Home = () => {
           )}
         </div>
       </div>
-      <h1 className="font-mono text-[30px] flex justify-center py-3">
+      <h1 className="font-mono text-[30px] flex justify-center py-3 mt-[40px] lg:mt-[10px]">
         Kids Section
       </h1>
       <div className="w-screen h-fit overflow-x-scroll px-10">
@@ -103,7 +103,7 @@ const Home = () => {
           )}
         </div>
       </div>
-      <h1 className="font-mono text-[30px] flex justify-center py-3">
+      <h1 className="font-mono text-[30px] flex justify-center py-3 mt-[40px] lg:mt-[10px]">
         Sales Section
       </h1>
       <div className="w-screen h-fit overflow-x-scroll px-10">
