@@ -90,7 +90,7 @@ const Product = ({
               </div>
               <div className="grid grid-cols-2">
                 <span>Product Status &nbsp;&nbsp;: </span>
-                <span>{status}</span>
+                <span className={`font-semibold ${status === 'have stock' ?"text-green-500":"text-red-500"}`}>{status}</span>
               </div>
               <div className="grid grid-cols-2">
                 <span>Color Available&nbsp; : </span>

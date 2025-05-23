@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { Footer, NavBar } from "../main/index";
-import ScrollToTop from "../components/ScrollToTop";
+import {ScrollToTop} from "../components/index";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
