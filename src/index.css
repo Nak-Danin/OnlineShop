@@ -17,3 +17,6 @@
 .body-lock {
   @apply h-[100vh] overflow-hidden;
 }
+.active{
+  @apply underline;
+}

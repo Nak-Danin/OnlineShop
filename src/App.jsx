@@ -1,6 +1,6 @@
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import {RootLayout} from "./layout/index";
-import {Home, Men, Women, Kid, Sale} from "./pages/index";
+import {Home, Men, Women, Kid, Sale, Trending} from "./pages/index";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -28,7 +28,7 @@ const router = createBrowserRouter([
       },
       {
         path: "new&trending",
-        element: <h1>New&TrendingLayout</h1>,
+        element: <Trending/>,
       }
     ]
   },

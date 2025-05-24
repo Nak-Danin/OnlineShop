@@ -12,29 +12,30 @@ const noStock = all.filter(({ status }) => status !== "have stock");
 const card = [
   {
     img: Men,
-    detail: "Soak up the sun in style.",
-    section: "MODERN MEN",
+    detail: "Fresh looks for modern men",
+    section: "MEN'S STYLE PICKS",
     path: "/men",
   },
   {
     img: Women,
-    detail: "Soak up the sun in style.",
-    section: "MODERN WOMEN",
+    detail: "Bold fashion for every woman",
+    section: "WOMEN'S NEW ARRIVALS",
     path: "/women",
   },
   {
     img: Discount,
-    detail: "Soak up the sun in style.",
-    section: "SPECIAL OFFERS",
+    detail: "Save big, shop smart now",
+    section: "LIMITED TIME DEALS",
     path: "/sale",
   },
   {
     img: Trending,
-    detail: "Soak up the sun in style.",
-    section: "TRENDING PRODUCTS",
+    detail: "Hot trends, top choices now",
+    section: "WHAT'S TRENDING NOW",
     path: "/new&trending",
   },
 ];
+
 const Kid = () => {
   return(
     <div>

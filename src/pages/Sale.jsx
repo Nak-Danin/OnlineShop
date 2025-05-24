@@ -8,29 +8,29 @@ import Trending from "../assets/images/Discount/Trending.avif";
 const card = [
     {
         img: Men,
-        detail: "Soak up the sun in style.",
-        section: "MODERN MEN",
+        detail: "Elevate your wardrobe",
+        section: "TRENDING MEN",
         path: "/men"
     },
     {
         img: Women,
-        detail: "Soak up the sun in style.",
-        section: "MODERN WOMEN",
+        detail: "The latest in modern elegance.",
+        section: "STYLISH WOMEN",
         path: "/women"
     },
     {
         img: Kid,
-        detail: "Soak up the sun in style.",
-        section: "MODERN KIDS",
+        detail: "Playful fashion personalities.",
+        section: "FRESH FOR KIDS",
         path: "/kid"
     },
     {
         img: Trending,
-        detail: "Soak up the sun in style.",
+        detail: "Hot picks for Everyone.",
         section: "TRENDING PRODUCTS",
         path: "/new&trending"
     },
-]
+];
 const all = shoes.filter(({discount}) => discount !==0);
 const men = all.filter(({category}) => category === "men");
 const women = all.filter(({category}) => category === "women");
@@ -41,7 +41,7 @@ const Sale = () => {
   return (
     <div>
         <AfterNavBar banner={Banner} card={card}/>
-        <Slider item={available} title={"Available Special Offers"}/>
+        <Slider item={available} title={"Available Offers"}/>
         <Slider item={men} title={"Men Products"}/>
         <Slider item={women} title={"Women Products"}/>
         <Slider item={kid} title={"Kids Products"}/>

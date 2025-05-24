@@ -5,8 +5,8 @@ const Slider = ({ item, title }) => {
       <h1 className="font-mono text-[30px] flex justify-center py-3 lg:mt-[10px]">
         {title}
       </h1>
-      <div className="w-screen h-fit overflow-x-scroll px-10">
-        <div className="w-fit flex gap-2 overflow-x-hidden ">
+      <div className="w-screen px-10 overflow-x-scroll h-fit">
+        <div className="flex gap-2 overflow-x-hidden w-fit ">
           {item.map(
             ({
               id,

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import logo1 from "../assets/images/Nike-Logo1.jpg";
 import logo2 from "../assets/images/Nike-Logo2.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -68,9 +68,23 @@ const NavBar = () => {
   return (
     <>
       <nav className="sticky top-0 z-10">
-        <div className={ isSearch? "lg:hidden flex justify-center bg-gray-200 py-2 items-center gap-3" : "hidden"}>
-          <input className="border-2 text-center rounded-[5px] outline-0 w-[calc(100vw/3)] text-[12px] md:text-[20px]" type="search" placeholder="Search Here" />
-          <FontAwesomeIcon onClick={() => setIsSearch(false)} className="text-[1.1rem] hover:bg-black/30 p-1 rounded-[2px]" icon={faX}/>
+        <div
+          className={
+            isSearch
+              ? "lg:hidden flex justify-center bg-gray-200 py-2 items-center gap-3"
+              : "hidden"
+          }
+        >
+          <input
+            className="border-2 text-center rounded-[5px] outline-0 w-[calc(100vw/3)] text-[12px] md:text-[20px]"
+            type="search"
+            placeholder="Search Here"
+          />
+          <FontAwesomeIcon
+            onClick={() => setIsSearch(false)}
+            className="text-[1.1rem] hover:bg-black/30 p-1 rounded-[2px]"
+            icon={faX}
+          />
         </div>
         <div className="bg-gray-100 text-black lg:flex justify-between py-2 px-9 w-screen h-[38px] hidden">
           <img
@@ -95,13 +109,13 @@ const NavBar = () => {
           <img className="w-fit h-[50px]" src={logo2} alt="logo2" />
           <ul className="flex gap-5 font-semibold font-mono">
             {Links.map(({ label, path }) => (
-              <Link
+              <NavLink
                 key={path}
-                className="text-[15px] hidden lg:block"
+                className={`text-[15px] underline-offset-4 decoration-2 hidden lg:block`}
                 to={path}
               >
                 {label}
-              </Link>
+              </NavLink>
             ))}
           </ul>
           <aside className="relative flex gap-5">
@@ -115,7 +129,10 @@ const NavBar = () => {
               type="search"
               placeholder="Look for"
             />
-            <FontAwesomeIcon className="text-[1.3rem] lg:text-[1.3rem] mt-1 !hidden lg:!block md:text-[30px]" icon={faHeart} />
+            <FontAwesomeIcon
+              className="text-[1.3rem] lg:text-[1.3rem] mt-1 !hidden lg:!block md:text-[30px]"
+              icon={faHeart}
+            />
             <FontAwesomeIcon
               className="text-[1.3rem] lg:text-[1.3rem] mt-1 md:text-[30px]"
               icon={faBagShopping}
@@ -128,22 +145,20 @@ const NavBar = () => {
           </aside>
         </div>
       </nav>
-        <div className="bg-gray-100 flex justify-center items-center w-screen h-[45px] overflow-hidden">
-          <div
-            className={`font-semibold text-[12px] md:text-[15px] duration-300 ${
-              animate ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            {messages[index]}
-          </div>
-        </div>
+      <div className="bg-gray-100 flex justify-center items-center w-screen h-[45px] overflow-hidden">
         <div
-          className={
-            isClick
-              ? "w-screen h-screen bg-black/40 fixed top-0 z-20"
-              : "hidden"
-          }
-        ></div>
+          className={`font-semibold text-[12px] md:text-[15px] duration-300 ${
+            animate ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          {messages[index]}
+        </div>
+      </div>
+      <div
+        className={
+          isClick ? "w-screen h-screen bg-black/40 fixed top-0 z-20" : "hidden"
+        }
+      ></div>
       <div
         className={`w-[50%] md:w-[40%] fixed h-screen bg-white right-0 top-0 duration-500 z-30 transition-all ${
           isClick ? "translate-x-0" : "translate-x-full"

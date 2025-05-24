@@ -1,4 +1,4 @@
-import { Product, AfterNavBar, Slider } from "../components/index";
+import { AfterNavBar, Slider } from "../components/index";
 import shoes from "../data/shoesData";
 import Banner from "../assets/images/Shoe_Banner.jpg";
 import img1 from "../assets/images/MenModel.jpg";
@@ -12,25 +12,25 @@ const sale = shoes.filter(({ discount }) => discount !== 0);
 const card = [
   {
     img: img1,
-    detail: "Soak up the sun in style.",
-    section: "MODERN MEN",
+    detail: "Style upgrades for modern men",
+    section: "MEN'S FASHION",
     path: "men",
   },
   {
     img: img2,
-    detail: "Soak up the sun in style.",
-    section: "MODERN WOMEN",
+    detail: "Confident looks for women",
+    section: "WOMEN'S STYLE",
     path: "women",
   },
   {
     img: img3,
-    detail: "Soak up the sun in style.",
-    section: "MODERN KIDS",
+    detail: "Fun fits for stylish kids",
+    section: "KIDS' PICKS",
     path: "kid",
   },
   {
     img: img4,
-    detail: "Soak up the sun in style.",
+    detail: "Hot items trending this week",
     section: "TRENDING PRODUCTS",
     path: "new&trending",
   },
