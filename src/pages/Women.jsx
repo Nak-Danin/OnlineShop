@@ -1,25 +1,25 @@
 import { AfterNavBar, Slider } from "../components/index";
-import Banner from "../assets/images/Shoe_Banner2.jpg";
-import Women from "../assets/images/Men/Women.webp";
-import Discount from "../assets/images/Men/Discount.webp";
-import Kid from "../assets/images/Men/Kid.webp";
-import Trending from "../assets/images/Men/Trending.avif";
+import Banner from "../assets/images/Women/Shoe_Banner.jpg";
+import Men from "../assets/images/Women/Men.webp";
+import Discount from "../assets/images/Women/Discount.webp";
+import Kid from "../assets/images/Women/Kid.webp";
+import Trending from "../assets/images/Women/Trending.jpg";
 import shoes from "../data/shoesData";
-const all = shoes.filter(({ category }) => category === "men");
+const all = shoes.filter(({ category }) => category === "women");
 const discount = all.filter(({ discount }) => discount !== 0);
 const available = all.filter(({ status }) => status == "have stock");
 const noStock = all.filter(({ status }) => status !== "have stock");
 const card = [
   {
-    img: Women,
+    img: Men,
     detail: "Soak up the sun in style.",
-    section: "MODERN WOMEN",
-    path: "/women",
+    section: "MODERN MEN",
+    path: "/men",
   },
   {
     img: Discount,
     detail: "Soak up the sun in style.",
-    section: "SPECIAL OFFERS",
+    section: "SPECIAL OFFER",
     path: "/sale",
   },
   {
@@ -31,11 +31,11 @@ const card = [
   {
     img: Trending,
     detail: "Soak up the sun in style.",
-    section: "TRENDING PRODUCTS",
+    section: "TRENDING PRODUCT",
     path: "/new&trending",
   },
 ];
-const Men = () => {
+const Women = () => {
   return (
     <div>
       <AfterNavBar banner={Banner} card={card} />
@@ -47,4 +47,4 @@ const Men = () => {
   );
 };
 
-export default Men;
+export default Women;

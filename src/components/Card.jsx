@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 
 const Card = ({ img, detail, section, path }) => {
   return (
-    <div className="w-auto h-fit lg:h-[70vh] bg-white lg:hover:border-[1px] lg:hover:p-[1px] border-black relative">
+    <div className="w-auto h-fit md:h-full lg:h-[70vh] bg-white lg:hover:border-[1px] lg:hover:p-[1px] border-black relative">
       <img
-        className="w-full h-full lg:h-[73%] lg:opacity-100 opacity-90 lg:object-cover"
+        className="w-full h-full lg:h-[73%] lg:opacity-100 opacity-90 md:object-cover"
         src={img}
         alt="Men Model"
       />

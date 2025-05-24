@@ -31,7 +31,7 @@ const card = [
   {
     img: img4,
     detail: "Soak up the sun in style.",
-    section: "TRENDING PRODUCT",
+    section: "TRENDING PRODUCTS",
     path: "new&trending",
   },
 ];
