@@ -1,4 +1,10 @@
-import { faShoppingCart, faX } from "@fortawesome/free-solid-svg-icons";
+import {
+  faShoppingBag,
+  faShoppingCart,
+  faX,
+  faHeart,
+} from "@fortawesome/free-solid-svg-icons";
+// import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 
@@ -12,8 +18,12 @@ const Product = ({
   colors,
   category,
   details,
+  selectId,
+  setSelectId,
 }) => {
   const [showDetails, setShowDetails] = useState(false);
+  const isSelected = selectId === id;
+  const [isHearted, setIsHearted] = useState(false);
   useEffect(() => {
     if (showDetails) {
       document.querySelector("body").style.cssText = "overflow-y: hidden";
@@ -22,10 +32,47 @@ const Product = ({
     }
   }, [showDetails]);
   return (
-    <>
-      <div className="w-[200px] h-[280px] rounded-[10px] border-2 border-black/50">
+    <div className="relative">
+      <div className={`absolute top-[10px] left-[10px] text-[20px] z-10 flex flex-col lg:hidden justify-between h-[50px] ${isSelected? "block" : "hidden"}`}>
+        <FontAwesomeIcon
+          onClick={() => setIsHearted(!isHearted)}
+          className={` ${isHearted ? "text-red-500" : "text-white"}`}
+          icon={faHeart}
+        />
+        <FontAwesomeIcon className="text-gray-700" icon={faShoppingBag} />
+      </div>
+      <div
+        onClick={() => {
+          if (window.innerWidth < 992) {
+            setSelectId(selectId === id ? null : id);
+          }
+        }}
+        onMouseOver={() => {
+          if (window.innerWidth >= 992) setSelectId(id);
+        }}
+        onMouseLeave={() => {
+          if (window.innerWidth >= 992) setSelectId(null);
+        }}
+        className={`w-[200px] h-[280px] relative rounded-[10px] border-2 border-black/50 ${
+          isSelected && "border-blue-500"
+        }`}
+      >
+        <div
+          className={`absolute w-full h-[60%] bg-black/15 top-0 right-0 rounded-t-[8px] ${
+            isSelected ? "block" : "hidden"
+          }`}
+        >
+          <div className={`absolute top-[10px] left-[10px] text-[20px] z-10 flex-col hidden justify-between h-[50px] ${isSelected? "lg:flex" : "hidden"}`}>
+        <FontAwesomeIcon
+          onClick={() => setIsHearted(!isHearted)}
+          className={` ${isHearted ? "text-red-500" : "text-white"}`}
+          icon={faHeart}
+        />
+        <FontAwesomeIcon className="text-gray-700" icon={faShoppingBag} />
+      </div>
+        </div>
         <img
-          className="w-full h-[60%] object-cover rounded-t-[10px]"
+          className="w-full h-[60%] bg-white object-cover rounded-t-[10px]"
           src={imgsrc}
           alt={name}
         />
@@ -90,7 +137,13 @@ const Product = ({
               </div>
               <div className="grid grid-cols-2">
                 <span>Product Status &nbsp;&nbsp;: </span>
-                <span className={`font-semibold ${status === 'have stock' ?"text-green-500":"text-red-500"}`}>{status}</span>
+                <span
+                  className={`font-semibold ${
+                    status === "have stock" ? "text-green-500" : "text-red-500"
+                  }`}
+                >
+                  {status}
+                </span>
               </div>
               <div className="grid grid-cols-2">
                 <span>Color Available&nbsp; : </span>
@@ -114,7 +167,7 @@ const Product = ({
           </div>
         </article>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -14,7 +14,7 @@ const RootLayout = () => {
     });
   },[]);
   return (
-    <div>
+    <div className="bg-gray-200/30">
       <ScrollToTop />
       <NavBar />
       <Outlet />

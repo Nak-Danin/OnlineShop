@@ -37,7 +37,6 @@ const women = all.filter(({category}) => category === "women");
 const kid = all.filter(({category}) => category === "kid");
 const available = all.filter(({status}) => status === "have stock");
 const Sale = () => {
-    console.log(all)
   return (
     <div>
         <AfterNavBar banner={Banner} card={card}/>

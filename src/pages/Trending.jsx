@@ -42,10 +42,10 @@ const Trending = () => {
   return (
     <div>
         <AfterNavBar banner={Banner} card={card}/>
-        <Slider item={all} title={"All Products"}/>
-        <Slider item={men} title={"Men Products"}/>
-        <Slider item={women} title={"Women Products"}/>
-        <Slider item={kid} title={"Kids Products"}/>
+        <Slider item={all} title={"All Trending"}/>
+        <Slider item={men} title={"Men Trending"}/>
+        <Slider item={women} title={"Women Trending"}/>
+        <Slider item={kid} title={"Kids Trending"}/>
     </div>
   )
 }

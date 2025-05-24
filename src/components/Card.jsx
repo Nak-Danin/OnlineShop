@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 
 const Card = ({ img, detail, section, path }) => {
   return (
-    <div className="w-auto h-fit md:h-full lg:h-[70vh] bg-white lg:hover:border-[1px] lg:hover:p-[1px] border-black relative">
+    <div className="w-auto h-fit md:h-full lg:h-[70vh] lg:hover:border-[1px] lg:hover:p-[1px] border-black relative">
       <img
         className="w-full h-full lg:h-[73%] lg:opacity-100 opacity-90 md:object-cover"
         src={img}
-        alt="Men Model"
+        alt={section}
       />
       <div className="text-shadow-sm lg:text-shadow-none text-shadow-black absolute w-full left-1/2 bottom-12 -translate-x-1/2 lg:static lg:left-0 text-white lg:text-black lg:translate-0 flex flex-col justify-between items-baseline px-[5px] p-[1px] lg:p-[20px] lg:h-[27%]">
         <div className="flex w-full flex-col gap-4 lg:gap-2 items-center lg:items-baseline">

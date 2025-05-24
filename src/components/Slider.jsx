@@ -1,12 +1,14 @@
+import { useState } from "react";
 import Product from "./Product";
 const Slider = ({ item, title }) => {
+  const [selectId, setSelectId] = useState(null);
   return (
     <>
-      <h1 className="font-mono text-[30px] flex justify-center py-3 lg:mt-[10px]">
+      <h1 className="font-mono text-[30px] flex justify-center py-3 lg:mt-[10px] mt-[40px] md:mt-[30px]">
         {title}
       </h1>
       <div className="w-screen px-10 overflow-x-scroll h-fit">
-        <div className="flex gap-2 overflow-x-hidden w-fit ">
+        <div className="flex gap-[20px] overflow-x-hidden w-fit ">
           {item.map(
             ({
               id,
@@ -21,6 +23,7 @@ const Slider = ({ item, title }) => {
             }) => (
               <Product
                 key={id}
+                id={id}
                 name={name}
                 price={price}
                 imgsrc={imgsrc}
@@ -29,6 +32,8 @@ const Slider = ({ item, title }) => {
                 colors={colors}
                 category={category}
                 details={details}
+                selectId={selectId}
+                setSelectId={setSelectId}
               />
             )
           )}

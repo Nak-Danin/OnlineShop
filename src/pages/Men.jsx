@@ -3,7 +3,7 @@ import Banner from "../assets/images/Shoe_Banner2.jpg";
 import Women from "../assets/images/Men/Women.webp";
 import Discount from "../assets/images/Men/Discount.webp";
 import Kid from "../assets/images/Men/Kid.webp";
-import Trending from "../assets/images/Men/Trending.avif";
+import Trending from "../assets/images/Men/Trending1.webp";
 import shoes from "../data/shoesData";
 const all = shoes.filter(({ category }) => category === "men");
 const discount = all.filter(({ discount }) => discount !== 0);
@@ -17,16 +17,16 @@ const card = [
     path: "/women",
   },
   {
-    img: Discount,
-    detail: "Best deals you can't miss",
-    section: "HOT OFFERS",
-    path: "/sale",
-  },
-  {
     img: Kid,
     detail: "Fun and comfy kidswear",
     section: "KIDS' COLLECTION",
     path: "/kid",
+  },
+  {
+    img: Discount,
+    detail: "Best deals you can't miss",
+    section: "HOT OFFERS",
+    path: "/sale",
   },
   {
     img: Trending,
