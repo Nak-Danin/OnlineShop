@@ -154,7 +154,7 @@ const Product = ({
                 </span>
               </div>
               <div className="grid grid-cols-2">
-                <span className="">
+                <span>
                   Category &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; :{" "}
                 </span>
                 <span>{category}</span>

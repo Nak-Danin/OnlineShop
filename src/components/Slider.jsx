@@ -4,10 +4,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBackward, faForward } from "@fortawesome/free-solid-svg-icons";
 const Slider = ({ item, title }) => {
   const [selectId, setSelectId] = useState(null);
-  // ✅ useRef instead of document.querySelector
+  // useRef instead of document.querySelector
   const outerRef = useRef(null);
-  const [isPrevDisabled, setIsPrevDisabled] = useState(true); // ✅ NEW
-  const [isNextDisabled, setIsNextDisabled] = useState(false); // ✅ NEW
+  const [isPrevDisabled, setIsPrevDisabled] = useState(true);
+  const [isNextDisabled, setIsNextDisabled] = useState(false); 
 
   const itemWidth = 220; // 200px + 20px gap
   const handleScrollCheck = () => {
@@ -15,7 +15,7 @@ const Slider = ({ item, title }) => {
     const scrollLeft = Math.round(outer.scrollLeft);
     const maxScroll = outer.scrollWidth - outer.clientWidth;
 
-    // ✅ Update React state instead of DOM directly
+    // Update React state instead of DOM directly
     setIsPrevDisabled(scrollLeft <= 0);
     setIsNextDisabled(scrollLeft >= maxScroll - 1);
   };
@@ -23,7 +23,7 @@ const Slider = ({ item, title }) => {
     const outer = outerRef.current;
     outer.addEventListener("scroll", handleScrollCheck);
     window.addEventListener("resize", handleScrollCheck);
-    // ✅ Initial check
+    // Initial check
     handleScrollCheck();
     return () => {
       outer.removeEventListener("scroll", handleScrollCheck);
@@ -40,13 +40,13 @@ const Slider = ({ item, title }) => {
         {title}
       </h1>
       <div className="flex justify-center gap-3 pb-4">
-        <button onClick={() => scrollBy(-itemWidth)} disabled={isPrevDisabled} className={isPrevDisabled && "opacity-50 cursor-not-allowed"}>
+        <button onClick={() => scrollBy(-itemWidth)} disabled={isPrevDisabled} className={`${isPrevDisabled && "opacity-50 cursor-not-allowed"}`}>
           <FontAwesomeIcon
             className="border-[1px] border-black py-1 px-3 rounded-[10px] text-xl hover:text-white hover:bg-black active:text-white active:bg-black"
             icon={faBackward}
           />
         </button>
-        <button onClick={() => scrollBy(itemWidth)} disabled={isNextDisabled} className={isNextDisabled && "opacity-50 cursor-not-allowed"}>
+        <button onClick={() => scrollBy(itemWidth)} disabled={isNextDisabled} className={`${isNextDisabled && "opacity-50 cursor-not-allowed"}`}>
           <FontAwesomeIcon
             className="border-[1px] border-black py-1 px-3 rounded-[10px] text-xl hover:text-white hover:bg-black active:text-white active:bg-black"
             icon={faForward}
