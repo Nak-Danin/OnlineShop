@@ -4,7 +4,7 @@ import Banner from "../assets/images/Shoe_Banner.jpg";
 import img1 from "../assets/images/MenModel.jpg";
 import img2 from "../assets/images/WomenModel.avif";
 import img3 from "../assets/images/KidModel.jpg";
-import img4 from "../assets/images/TrendingModel.webp";
+import img4 from "../assets/images/Trending.avif";
 const men = shoes.filter(({ category }) => category === "men");
 const women = shoes.filter(({ category }) => category === "women");
 const kid = shoes.filter(({ category }) => category == "kid");
