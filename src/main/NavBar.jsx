@@ -76,7 +76,8 @@ const NavBar = () => {
           }
         >
           <input
-            className="border-2 text-center rounded-[5px] outline-0 w-[calc(100vw/3)] text-[12px] md:text-[20px]"
+            autoComplete="true"
+            className="border-2 text-center rounded-[5px] outline-0 w-[calc(100vw/3)] text-[14px] md:text-[20px]"
             type="search"
             placeholder="Search Here"
           />
@@ -133,10 +134,12 @@ const NavBar = () => {
               className="text-[1.3rem] lg:text-[1.3rem] mt-1 !hidden lg:!block md:text-[30px]"
               icon={faHeart}
             />
-            <FontAwesomeIcon
-              className="text-[1.3rem] lg:text-[1.3rem] mt-1 md:text-[30px]"
-              icon={faBagShopping}
-            />
+            <Link to="Cart">
+              <FontAwesomeIcon
+                className="text-[1.3rem] lg:text-[1.3rem] mt-1 md:text-[30px]"
+                icon={faBagShopping}
+              />
+            </Link>
             <FontAwesomeIcon
               onClick={() => setIsClick(true)}
               className="text-[1.3rem] lg:text-[1.3rem] mt-1 lg:!hidden md:text-[30px]"

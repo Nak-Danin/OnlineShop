@@ -7,6 +7,7 @@ import {
 // import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
+import { useCart } from "../hooks/useCartProvider";
 
 const Product = ({
   id,
@@ -24,6 +25,7 @@ const Product = ({
   const [showDetails, setShowDetails] = useState(false);
   const isSelected = selectId === id;
   const [isHearted, setIsHearted] = useState(false);
+  const [showAddedToCart, setShowAddToCart] = useState(false);
   useEffect(() => {
     if (showDetails) {
       document.querySelector("body").style.cssText = "overflow-y: hidden";
@@ -31,7 +33,23 @@ const Product = ({
       document.querySelector("body").style.cssText = "overflow-y: auto";
     }
   }, [showDetails]);
+  const product = {id, name, price, imgsrc, status, colors, category, details, discount};
+  const { addToCart } = useCart();
+  const handleAddToCart = () => {
+    addToCart(product);
+    setShowAddToCart(true);
+  }
+  useEffect(()=>{
+    if(showAddedToCart){
+      const timeout = setTimeout(() => setShowAddToCart(false), 2000)
+      return () => clearTimeout(timeout);
+    }
+  },[addToCart],[showAddedToCart])
   return (
+    <>
+    <div className={`fixed w-[130px] px-2 py-1 overflow-hidden h-auto top-30 md:w-[200px] md:top-[28%] lg:top-50 md:text-[20px] md:p-3 right-0 bg-gray-600 text-white z-50 rounded-s-[5px] transition-transform duration-500 ${showAddedToCart ? "translate-x-0":"translate-x-full"}`}>
+      Product Added
+    </div>
     <div className="relative">
       <div className={`absolute top-[10px] left-[10px] text-[20px] z-10 flex flex-col lg:hidden justify-between h-[50px] ${isSelected? "block" : "hidden"}`}>
         <FontAwesomeIcon
@@ -96,7 +114,7 @@ const Product = ({
             >
               Details
             </button>
-            <span className="text-[12px]">
+            <span className="text-[12px] hover:cursor-pointer" onClick={handleAddToCart}>
               Add to cart
               <FontAwesomeIcon className="ms-2" icon={faShoppingCart} />
             </span>
@@ -168,6 +186,7 @@ const Product = ({
         </article>
       </div>
     </div>
+    </>
   );
 };
 

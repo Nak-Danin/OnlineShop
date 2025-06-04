@@ -5,3 +5,4 @@ export {default as Kid} from "./Kid";
 export {default as Sale} from "./Sale";
 export {default as Trending} from "./Trending";
 export {default as ErrorPage} from "./ErrorPage";
+export {default as Cart} from "./Cart";
