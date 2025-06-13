@@ -1,6 +1,6 @@
 import loginBG from "../assets/images/loginBG.webp";
 import login from "../assets/images/login.avif";
-import nike from "../assets/images/Nike-logo1.jpg";
+import nike from "../assets/images/Nike-Logo1.jpg";
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-regular-svg-icons";
@@ -18,7 +18,6 @@ const Login = () => {
       span.style.top = "-15px";
       span.style.fontSize = "10px";
     };
-
     const handleBlur = (input, span) => {
       if (!input.value) {
         span.style.top = "8px";
