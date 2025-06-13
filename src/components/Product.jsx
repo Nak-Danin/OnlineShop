@@ -103,7 +103,7 @@ const Product = ({
             }`}
           >
             <div
-              className={`absolute top-[10px] left-[10px] text-[20px] z-10 flex-col hidden justify-between h-[50px] ${
+              className={`absolute top-[10px] left-[10px] text-[20px] z-[8] flex-col hidden justify-between h-[50px] ${
                 isSelected ? "lg:flex" : "hidden"
               }`}
             >
