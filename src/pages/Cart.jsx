@@ -9,7 +9,7 @@ import {
 const Cart = () => {
   const { cart, clearCart } = useCart();
   const total = cart.reduce(
-    (sum, { price, quantity }) => (sum += price * quantity),
+    (sum, { price, quantity, discount }) => (sum += (price - price * discount/100) * quantity),
     0
   );
   const count = cart.reduce((sum, { quantity }) => (sum += quantity), 0);
@@ -79,7 +79,7 @@ const Cart = () => {
             ))}
           </div>
           <footer className="my-3 flex flex-col justify-center items-center">
-            <div className="flex justify-between md:justify-end md:gap-[100px] md:pe-[70px] lg:gap-[230px] lg:pe-[170px] px-5 items-center h-[50px] w-screen">
+            <div className="flex justify-between md:justify-end md:gap-[100px] md:pe-[70px] lg:gap-[285px] lg:pe-[170px] px-5 items-center h-[50px] w-screen">
               <span className="text-[14px] md:text-[19px] md:mt-[2px] lg:text-[23px] font-mono font-bold md:font-normal">
                 TOTAL:
               </span>
@@ -87,8 +87,8 @@ const Cart = () => {
                 ${total.toFixed(2)}
               </span>
             </div>
-            <div className="flex justify-end items-center px-7 w-screen md:pe-[60px] lg:pe-[141px]">
-              <Link className="text-[20px] text-white text-center md:w-[255px] lg:w-fit lg:px-5 bg-green-600/90 active:bg-green-600/60 w-screen py-2 rounded-[5px] hover:cursor-pointer">
+            <div className="flex justify-end items-center px-7 w-screen md:pe-[60px] lg:pe-[155px]">
+              <Link to='/payment' className="text-[20px] text-white text-center md:w-[255px] lg:w-fit lg:px-7 bg-green-600/90 active:bg-green-600/60 w-screen py-2 rounded-[5px] hover:cursor-pointer">
                 Check Out
               </Link>
             </div>

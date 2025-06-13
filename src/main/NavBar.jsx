@@ -2,12 +2,14 @@ import { NavLink, Link } from "react-router-dom";
 import logo1 from "../assets/images/Nike-Logo1.jpg";
 import logo2 from "../assets/images/Nike-Logo2.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-regular-svg-icons";
+import { faHeart} from "@fortawesome/free-regular-svg-icons";
+import { useCart } from "../hooks/useCartProvider";
 import {
   faArrowRight,
   faBagShopping,
   faBars,
   faSearch,
+  faUser,
   faX,
 } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
@@ -47,6 +49,7 @@ const NavBar = () => {
   const [isClick, setIsClick] = useState(false);
   const [index, setIndex] = useState(0);
   const [animate, setAnimate] = useState(false);
+  const {cart} = useCart();
   useEffect(() => {
     if (isClick) {
       document.querySelector("body").style.cssText = "overflow-y: hidden";
@@ -103,7 +106,7 @@ const NavBar = () => {
             <li className="border-e-2 border-black pe-3 hover:cursor-pointer">
               Join
             </li>
-            <li className="hover:cursor-pointer">Login</li>
+            <Link to='login' className="hover:cursor-pointer">Login</Link>
           </ul>
         </div>
         <div className="bg-white text-black flex justify-between py-2 px-9 items-center w-screen">
@@ -119,7 +122,7 @@ const NavBar = () => {
               </NavLink>
             ))}
           </ul>
-          <aside className="relative flex gap-5">
+          <aside className="relative flex items-center gap-5">
             <FontAwesomeIcon
               onClick={() => setIsSearch(true)}
               className="lg:absolute lg:left-[1px] lg:text-[1.2em] lg:top-0 left-[0px] bg-gray-100 top-[1px] md:text-[30px] hover:bg-gray-300 p-[7px] rounded-full  "
@@ -128,7 +131,7 @@ const NavBar = () => {
             <input
               className="w-[60%] hidden lg:block h-fit bg-gray-100 hover:bg-gray-300 rounded-[20px] p-1 text-center font-medium"
               type="search"
-              placeholder="Look for"
+              placeholder="Searching"
             />
             <FontAwesomeIcon
               className="text-[1.3rem] lg:text-[1.3rem] mt-1 !hidden lg:!block md:text-[30px]"
@@ -139,6 +142,10 @@ const NavBar = () => {
                 className="text-[1.3rem] lg:text-[1.3rem] mt-1 md:text-[30px]"
                 icon={faBagShopping}
               />
+              <span className="ms-1 font-medium text-red-500">{cart.length}</span>
+            </Link>
+            <Link to='login'>
+              <FontAwesomeIcon className="text-[1.1rem] lg:text-[1.1rem] mt-1 md:text-[26px]" icon={faUser}/>
             </Link>
             <FontAwesomeIcon
               onClick={() => setIsClick(true)}

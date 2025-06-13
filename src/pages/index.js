@@ -6,3 +6,5 @@ export {default as Sale} from "./Sale";
 export {default as Trending} from "./Trending";
 export {default as ErrorPage} from "./ErrorPage";
 export {default as Cart} from "./Cart";
+export {default as Payment} from "./Payment";
+export{default as Login} from "./Login";

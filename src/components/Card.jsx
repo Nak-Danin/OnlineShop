@@ -16,7 +16,7 @@ const Card = ({ img, detail, section, path }) => {
           <h1 className="font-serifs text-[20px]">{detail}</h1>
           <Link
             to={path}
-            className="lg:w-fit lg:mt-0 mt-5 lg:bg-transparent py-3 text-center bg-black/60 border-2 lg:border-none border-white rounded text-white lg:text-black w-[80%] font-mono font-semibold underline-offset-8 lg:underline text-[18px]"
+            className="lg:w-fit lg:mt-0 mt-5 lg:bg-transparent py-3 text-center bg-black/60 border-2 lg:border-none border-white rounded text-white lg:text-black w-[80%] font-mono font-semibold underline-offset-8 lg:underline text-[18px] lg:hover:text-blue-500"
           >
             SHOP NOW
           </Link>

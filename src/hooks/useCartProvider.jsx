@@ -1,8 +1,12 @@
-import { createContext, useContext, useReducer } from 'react'
+import { createContext, useContext, useEffect, useReducer } from 'react'
 
 const CartContext = createContext();
 export const useCart = () => useContext(CartContext);
 
+const init = () =>{
+    const stored = localStorage.getItem("cart");
+    return stored? JSON.parse(stored) : [];
+}
 const cartReducer = (state, action) => {
     switch(action.type){
         case 'add': 
@@ -32,7 +36,10 @@ const cartReducer = (state, action) => {
 }
 
 export const CartProvider = ({children}) => {
-    const [cart, dispatch] = useReducer(cartReducer, []);
+    const [cart, dispatch] = useReducer(cartReducer, [],init);
+    useEffect(()=>{
+        localStorage.setItem("cart", JSON.stringify(cart));
+    },[cart])
     const addToCart = (product) => {
         dispatch({type: "add", payload: product})
     }
