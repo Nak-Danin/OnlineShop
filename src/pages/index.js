@@ -8,3 +8,5 @@ export {default as ErrorPage} from "./ErrorPage";
 export {default as Cart} from "./Cart";
 export {default as Payment} from "./Payment";
 export{default as Login} from "./Login";
+export{default as Register} from "./Register";
+export{default as Wishlist} from "./Wishlist";

@@ -75,7 +75,7 @@ const Login = () => {
             </span>
             <FontAwesomeIcon
               onClick={() => setShowPassword(!showPassword)}
-              className="eye absolute right-2 top-3 z-20"
+              className="eye absolute right-2 top-3 z-20 hover:cursor-pointer"
               icon={showPassword ? faEye : faEyeSlash}
             />
           </div>
@@ -101,9 +101,9 @@ const Login = () => {
               <span className="font-semibold">Facebook</span>
             </button>
           </div>
-          <div className="flex justify-center gap-2 text-[12px]">
+          <div className="flex justify-center gap-2 text-[14px]">
             <span className="text-gray-600">Don't have an account yet?</span>
-            <span className="text-blue-600 font-medium">Register</span>
+            <Link to='/register' className="text-blue-600 font-medium">Register</Link>
           </div>
         </div>
       </div>

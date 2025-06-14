@@ -70,7 +70,7 @@ const Product = ({
       </div>
       <div className="relative">
         <div
-          className={`absolute top-[10px] left-[10px] text-[20px] z-10 flex flex-col lg:hidden justify-between h-[50px] ${
+          className={`absolute top-[10px] left-[10px] text-[20px] z-[8] flex flex-col lg:hidden justify-between h-[50px] ${
             isSelected ? "block" : "hidden"
           }`}
         >

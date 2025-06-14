@@ -1,6 +1,6 @@
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import {RootLayout} from "./layout/index";
-import {Home, Men, Women, Kid, Sale, Trending, ErrorPage, Cart, Payment, Login} from "./pages/index";
+import {Home, Men, Women, Kid, Sale, Trending, ErrorPage, Cart, Payment, Login, Register, Wishlist} from "./pages/index";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -45,7 +45,11 @@ const router = createBrowserRouter([
       },
       {
         path: "register",
-        element: <h1>Rgister</h1>
+        element: <Register/>
+      },
+      {
+        path: "wishlist",
+        element: <Wishlist/>
       }
     ]
   },

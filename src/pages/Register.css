@@ -1,0 +1,22 @@
+@keyframes borderMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-border {
+  background: linear-gradient(
+    90deg,
+    #ff00cc,   /* pink */
+    #9900ff,   /* purple */
+    #0033ff,   /* deep blue */
+    #00ccff,   /* light blue */
+    #00ff99,   /* mint green */
+    #ffff00    /* yellow */
+  );
+  background-size: 400% 400%;
+  animation: borderMove 5s linear alternate infinite;
+}
