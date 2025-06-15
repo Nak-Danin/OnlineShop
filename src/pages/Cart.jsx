@@ -2,14 +2,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { CartProduct } from "../components/index";
 import { useCart } from "../hooks/useCartProvider";
 import { Link } from "react-router-dom";
-import {
-  faArrowLeft,
-  faLongArrowAltLeft,
-} from "@fortawesome/free-solid-svg-icons";
+import { faLongArrowAltLeft } from "@fortawesome/free-solid-svg-icons";
 const Cart = () => {
   const { cart, clearCart } = useCart();
   const total = cart.reduce(
-    (sum, { price, quantity, discount }) => (sum += (price - price * discount/100) * quantity),
+    (sum, { price, quantity, discount }) =>
+      (sum += (price - (price * discount) / 100) * quantity),
     0
   );
   const count = cart.reduce((sum, { quantity }) => (sum += quantity), 0);
@@ -88,7 +86,10 @@ const Cart = () => {
               </span>
             </div>
             <div className="flex justify-end items-center px-7 w-screen md:pe-[60px] lg:pe-[155px]">
-              <Link to='/payment' className="text-[20px] text-white text-center md:w-[255px] lg:w-fit lg:px-7 bg-green-600/90 active:bg-green-600/60 w-screen py-2 rounded-[5px] hover:cursor-pointer">
+              <Link
+                to="/payment"
+                className="text-[20px] text-white text-center md:w-[255px] lg:w-fit lg:px-7 bg-green-600/90 active:bg-green-600/60 w-screen py-2 rounded-[5px] hover:cursor-pointer"
+              >
                 Check Out
               </Link>
             </div>

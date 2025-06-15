@@ -2,7 +2,7 @@ import { NavLink, Link } from "react-router-dom";
 import logo1 from "../assets/images/Nike-Logo1.jpg";
 import logo2 from "../assets/images/Nike-Logo2.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart} from "@fortawesome/free-regular-svg-icons";
+// import { } from "@fortawesome/free-regular-svg-icons";
 import { useCart } from "../hooks/useCartProvider";
 import {
   faArrowRight,
@@ -11,6 +11,7 @@ import {
   faSearch,
   faUser,
   faX,
+  faHeart,
 } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 const messages = [
@@ -49,7 +50,7 @@ const NavBar = () => {
   const [isClick, setIsClick] = useState(false);
   const [index, setIndex] = useState(0);
   const [animate, setAnimate] = useState(false);
-  const {cart} = useCart();
+  const { cart } = useCart();
   useEffect(() => {
     if (isClick) {
       document.querySelector("body").style.cssText = "overflow-y: hidden";
@@ -106,7 +107,9 @@ const NavBar = () => {
             <li className="border-e-2 border-black pe-3 hover:cursor-pointer">
               Join
             </li>
-            <Link to='login' className="hover:cursor-pointer">Login</Link>
+            <Link to="login" className="hover:cursor-pointer">
+              Login
+            </Link>
           </ul>
         </div>
         <div className="bg-white text-black flex justify-between py-2 px-9 items-center w-screen">
@@ -133,19 +136,26 @@ const NavBar = () => {
               type="search"
               placeholder="Searching"
             />
-            <FontAwesomeIcon
-              className="text-[1.3rem] lg:text-[1.3rem] mt-1 !hidden lg:!block md:text-[30px]"
-              icon={faHeart}
-            />
-            <Link to="Cart">
+            <Link to="/wishlist">
+              <FontAwesomeIcon
+                className="text-[1.3rem] lg:text-[1.3rem] mt-1 md:text-[30px]"
+                icon={faHeart}
+              />
+            </Link>
+            <Link to="/cart">
               <FontAwesomeIcon
                 className="text-[1.3rem] lg:text-[1.3rem] mt-1 md:text-[30px]"
                 icon={faBagShopping}
               />
-              <span className="ms-1 font-medium text-red-500">{cart.length}</span>
+              <span className="ms-1 font-medium text-red-500">
+                {cart.length}
+              </span>
             </Link>
-            <Link to='login'>
-              <FontAwesomeIcon className="text-[1.1rem] lg:text-[1.1rem] mt-1 md:text-[26px]" icon={faUser}/>
+            <Link to="login">
+              <FontAwesomeIcon
+                className="text-[1.1rem] lg:text-[1.1rem] mt-1 md:text-[26px]"
+                icon={faUser}
+              />
             </Link>
             <FontAwesomeIcon
               onClick={() => setIsClick(true)}

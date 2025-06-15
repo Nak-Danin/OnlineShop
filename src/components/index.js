@@ -5,3 +5,4 @@ export { default as Card} from "./Card";
 export {default as Slider} from "./Slider";
 export {default as Loading} from "./Loading";
 export {default as CartProduct} from "./CartProduct";
+export {default as WishlistItem} from "./WishlistItem";

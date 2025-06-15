@@ -37,7 +37,7 @@ const CartProduct = ({ id, name, imgsrc, price, discount, quantity }) => {
       <main className="flex flex-col gap-1 justify-center md:hidden">
         <span className="text-[16px] tracking-tighter">{name}</span>
         <span className="text-[20px] font-medium">
-          ${(price - (price * discount) / 100).toFixed(2)}
+          ${((price - (price * discount) / 100)*quantity).toFixed(2)}
         </span>
         <span className="text-[16px] flex items-center gap-3">
           <FontAwesomeIcon

@@ -37,15 +37,14 @@ const card = [
 ];
 
 const Kid = () => {
-  return(
+  return (
     <div>
-        <AfterNavBar banner={Banner} card={card}/>
-        <Slider item={all} title={"All Products"}/>
-        <Slider item={discount} title={"Special Offers"}/>
-        <Slider item={available} title={"Available Products"}/>
-        <Slider item={noStock} title={"Out Of Stocks"}/>
+      <AfterNavBar banner={Banner} card={card} />
+      <Slider item={all} title={"All Products"} />
+      <Slider item={discount} title={"Special Offers"} />
+      <Slider item={available} title={"Available Products"} />
     </div>
-  )
+  );
 };
 
 export default Kid;

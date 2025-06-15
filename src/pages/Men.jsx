@@ -43,7 +43,6 @@ const Men = () => {
       <Slider item={all} title={"All Products"} />
       <Slider item={discount} title={"Special Offers"} />
       <Slider item={available} title={"Available Products"} />
-      <Slider item={noStock} title={"Out Of Stocks"} />
     </div>
   );
 };

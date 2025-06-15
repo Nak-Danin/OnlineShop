@@ -8,6 +8,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { useCart } from "../hooks/useCartProvider";
+import { useWishlist } from "../hooks/useWishlistContext";
 
 const Product = ({
   id,
@@ -24,7 +25,6 @@ const Product = ({
 }) => {
   const [showDetails, setShowDetails] = useState(false);
   const isSelected = selectId === id;
-  const [isHearted, setIsHearted] = useState(false);
   const [showAddedToCart, setShowAddToCart] = useState(false);
   useEffect(() => {
     if (showDetails) {
@@ -45,9 +45,14 @@ const Product = ({
     discount,
   };
   const { addToCart } = useCart();
+  const { IsInWishlist, addToWishlist } = useWishlist();
+  const outOfStock = status === "out of stock";
   const handleAddToCart = () => {
     addToCart(product);
     setShowAddToCart(true);
+  };
+  const handleAddToWishlist = () => {
+    addToWishlist(product);
   };
   useEffect(
     () => {
@@ -75,8 +80,10 @@ const Product = ({
           }`}
         >
           <FontAwesomeIcon
-            onClick={() => setIsHearted(!isHearted)}
-            className={` ${isHearted ? "text-red-500" : "text-white"}`}
+            onClick={handleAddToWishlist}
+            className={` hover:cursor-pointer ${
+              IsInWishlist(product.id) ? "text-red-500" : "text-white"
+            }`}
             icon={faHeart}
           />
           <FontAwesomeIcon className="text-gray-700" icon={faShoppingBag} />
@@ -108,13 +115,16 @@ const Product = ({
               }`}
             >
               <FontAwesomeIcon
-                onClick={() => setIsHearted(!isHearted)}
-                className={` ${isHearted ? "text-red-500" : "text-white"}`}
+                onClick={handleAddToWishlist}
+                className={` hover:cursor-pointer ${
+                  IsInWishlist(product.id) ? "text-red-500" : "text-white"
+                }`}
                 icon={faHeart}
               />
               <FontAwesomeIcon className="text-gray-700" icon={faShoppingBag} />
             </div>
           </div>
+          {outOfStock && <span className="absolute top-1 right-1 z-[8] p-1 bg-black/55 text-white rounded-md text-[14px] font-medium">Out of Stock</span>}
           <img
             className="w-full h-[60%] bg-white object-cover rounded-t-[10px]"
             src={imgsrc}
@@ -138,13 +148,14 @@ const Product = ({
               >
                 Details
               </button>
-              <span
-                className="text-[12px] hover:cursor-pointer"
+              <button
+                disabled = {outOfStock}
+                className={`text-[12px] ${outOfStock ? "cursor-not-allowed":"hover:cursor-pointer"}`}
                 onClick={handleAddToCart}
               >
                 Add to cart
                 <FontAwesomeIcon className="ms-2" icon={faShoppingCart} />
-              </span>
+              </button>
             </div>
           </div>
         </div>
