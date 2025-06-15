@@ -10,7 +10,7 @@ import {
   faPinterest,
   faTiktok,
 } from "@fortawesome/free-brands-svg-icons";
-
+import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div className="mt-[40px]">
@@ -53,10 +53,13 @@ const Footer = () => {
         <h1 className="text-[12px] font-bold md:text-[20px]">
           JOIN OUR CLUB & GET 15% OFF
         </h1>
-        <button className="bg-black font-medium text-white text-[11px] md:text-[18px] px-3 py-2 rounded flex justify-center items-center gap-3 border-[1px] border-white">
+        <Link
+          to="/register"
+          className="bg-black hover:cursor-pointer active:bg-black/70 font-medium text-white text-[11px] md:text-[18px] px-3 py-2 rounded flex justify-center items-center gap-3 border-[1px] border-white"
+        >
           <h1>SIGN UP FOR FREE</h1>
           <FontAwesomeIcon icon={faArrowRight} />
-        </button>
+        </Link>
       </div>
       <div className="flex justify-evenly w-screen px-2 gap-2 py-3">
         <div className="w-[calc(100vw/3)] md:w-[calc(100vw/4)] ps-3 ">
