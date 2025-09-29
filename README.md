@@ -13,7 +13,7 @@ The website allows users to browse, search, and explore different shoe categorie
 
 ## ✨ Key Features  
 - 👟 Product catalog with images and descriptions  
-- 🛒 Product cart intergrated with Local storage
+- 🛒 Product cart and wishlist are intergrated with Local storage
 - 🔍 filter product based on category  
 - 📱 Mobile-friendly responsive layout  
 - 🎨 Modern UI with Tailwind CSS & FontAwesome icons  
